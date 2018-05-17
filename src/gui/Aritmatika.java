@@ -11,6 +11,8 @@ package gui;
  */
 public class Aritmatika extends javax.swing.JFrame {
 
+    private double a, b, c;
+
     /**
      * Creates new form Aritmatika
      */
@@ -65,6 +67,11 @@ public class Aritmatika extends javax.swing.JFrame {
         });
 
         hitungButton.setText("Hitung");
+        hitungButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hitungButtonActionPerformed(evt);
+            }
+        });
 
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +158,35 @@ public class Aritmatika extends javax.swing.JFrame {
     private void operatorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operatorComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_operatorComboBoxActionPerformed
+
+    private void hitungButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungButtonActionPerformed
+        a = Double.parseDouble(angka1TextField.getText());
+        b = Double.parseDouble(angka2TextField.getText());
+
+        if (operatorComboBox.getSelectedItem().equals("+")) {
+
+            c = a + b;
+
+        } else if (operatorComboBox.getSelectedItem().equals("-")) {
+
+            c = a - b;
+
+        } else if (operatorComboBox.getSelectedItem().equals("/")) {
+
+            c = a / b;
+
+        } else if (operatorComboBox.getSelectedItem().equals("*")) {
+
+            c = a * b;
+
+        } else if (operatorComboBox.getSelectedItem().equals("%")) {
+
+            c = a % b;
+
+        }
+
+        hasilLabel.setText(c + "");
+    }//GEN-LAST:event_hitungButtonActionPerformed
 
     /**
      * @param args the command line arguments
